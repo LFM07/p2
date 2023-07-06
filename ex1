@@ -1,0 +1,25 @@
+#include<stdio.h>
+#define TOT 6
+void calculo(int *igual, int *diferente){
+	int num1, num2, dg1, dg2, soma, produto, qtdnum, i;
+	*igual = *diferente = 0;
+	for(i = 0; i < TOT; i++){
+		printf("Digite dois numeros (10 a 99): ");
+		scanf("%d%d", &num1, &num2);
+		soma = num1 + num2;
+		produto = soma*soma;
+		dg1 = produto/100;
+		dg2 = produto%100;
+		if(dg1 == num1 && dg2 == num2){
+			(*igual)++;
+		}
+			else{
+				(*diferente)++;
+			}
+	}
+}
+int main(){
+	int igual, diferente;
+	calculo(&igual, &diferente);
+	printf("Qtd numeros iguais: %d\n numeros diferentes: %d\n", igual, diferente);
+}
